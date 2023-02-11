@@ -3,30 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Системное программирование 2023</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<h1>Список дел</h1>
-<label>
-    <input placeholder="Новый элемент списка" type="text">
-</label>
-<button>Создать</button>
+<div class="class_todo_list">
+    <div class="title_style">
+        <h1>Список дел</h1>
+        <div class="title_new_elem_input">
+            <label>
+                <input placeholder="Введите новое дело..." type="text">
+            </label>
+            <button>Сохранить</button>
+        </div>
 
-<ol>
-    <li><label>
-        <input type="checkbox"/>
-    </label>Почесать кошку
-        <button>❌</button>
-    </li>
-    <li><label>
-        <input type="checkbox"/>
-    </label>Полить картошку
-        <button>❌</button>
-    </li>
-    <li><label>
-        <input type="checkbox"/>
-    </label>Сложить в лукошко
-        <button>❌</button>
-    </li>
-</ol>
+    </div>
+    <div class="todo_list">
+        <ol style="height: 184px; overflow: auto">
+            <li>
+                <label>
+                    <input checked type="checkbox"/>
+                    <span>Покормить кота</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"/>
+                    <span>Выгулять картошку</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"/>
+                    <span>Написать сайт</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"/>
+                    <span>Покормить картошку</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"/>
+                    <span>Выгулять сайт</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"/>
+                    <span>Покартошить сайт</span>
+                    <button></button>
+                    <div></div>
+                </label>
+            </li>
+        </ol>
+    </div>
+</div>
 </body>
 </html>

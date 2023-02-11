@@ -1,0 +1,147 @@
+body, html {
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+.class_todo_list {
+    max-width: 600px;
+    min-width: 300px;
+    margin: 3px;
+}
+
+.title_style {
+    background: #2f4f4f;
+    border-top: 26px solid #2f4f4f;
+    border-bottom: 33px solid #2f4f4f;
+    border-left: 45px solid #2f4f4f;
+    border-right: 47px solid #2f4f4f;
+}
+
+.title_style h1 {
+    color: #fff;
+    text-align: center;
+    font: 400 31px/1 'Times New Roman', sans-serif;
+    font-weight: bold;
+    margin: 6px;
+}
+
+
+.title_new_elem_input input[type="text"] {
+    width: calc(100% - 125px);
+    height: 39px;
+    font-size: 16px;
+    background: #fff;
+    padding: 0;
+    border: 0;
+    padding-left: 10px;
+}
+
+.title_new_elem_input input[type="text"]:focus {
+    outline: none;
+}
+
+.title_new_elem_input button {
+    height: 39px;
+    width: 125px;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+    background: #d9d9d9;
+    position: absolute;
+    transition: 0.1s linear;
+}
+
+.title_new_elem_input button:active {
+    background: #c8c8c8;
+}
+
+.title_new_elem_input button:hover {
+    font-size: 18px;
+    filter: brightness(90%);
+}
+
+
+.todo_list ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.todo_list li {
+    padding: 0;
+    position: relative;
+    font: 400 22px/1 'Times New Roman', sans-serif;
+    height: 46px;
+}
+
+.todo_list li:hover {
+    filter: brightness(90%);
+}
+
+.todo_list input[type="checkbox"] {
+    display: none;
+    margin: 0;
+    position: absolute;
+    left: 10px;
+    top: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.todo_list span {
+    cursor: pointer;
+    position: absolute;
+    left: 35px;
+    top: calc(50% - 11px);
+    transition: text-decoration 0.5s linear;
+}
+
+.todo_list button {
+    cursor: pointer;
+    background: url('/source/image/cross.png') no-repeat;
+    background-size: 100% 100%;
+    width: 11px;
+    height: 11px;
+    border: 0;
+    padding: 0;
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 15px;
+}
+
+.todo_list button:hover {
+    transform: scale(1.1);
+}
+
+.todo_list div {
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 100%;
+}
+
+.todo_list input[type="checkbox"]:checked {
+    background: url('/source/image/checkmark.png') no-repeat;
+    background-size: 20px 20px;
+    background-position: 0 0;
+    display: inline-block;
+}
+
+.todo_list input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: #eeeeee;
+}
+
+.todo_list input[type="checkbox"]:checked + span + button {
+    filter: invert(100%);
+}
+
+.todo_list input[type="checkbox"]:checked ~ div {
+    background-color: #888888;
+}
