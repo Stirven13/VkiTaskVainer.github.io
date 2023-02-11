@@ -83,7 +83,6 @@ body, html {
 }
 
 .todo_list input[type="checkbox"] {
-    display: none;
     margin: 0;
     position: absolute;
     left: 10px;
@@ -102,9 +101,8 @@ body, html {
 }
 
 .todo_list button {
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    background: url('/source/image/cross.png') no-repeat;
-    background-size: 100% 100%;
     width: 11px;
     height: 11px;
     border: 0;
@@ -112,6 +110,22 @@ body, html {
     position: absolute;
     top: calc(50% - 5px);
     right: 15px;
+}
+
+.todo_list button:before, .todo_list button:after {
+    position: absolute;
+    content: ' ';
+    top: -1px;
+    left: 4.5px;
+    height: 13px;
+    width: 2px;
+    background-color: #000;
+}
+.todo_list button:before {
+    transform: rotate(45deg);
+}
+.todo_list button:after {
+    transform: rotate(-45deg);
 }
 
 .todo_list button:hover {
@@ -124,13 +138,6 @@ body, html {
     background-color: #f9f9f9;
     width: 100%;
     height: 100%;
-}
-
-.todo_list input[type="checkbox"]:checked {
-    background: url('/source/image/checkmark.png') no-repeat;
-    background-size: 20px 20px;
-    background-position: 0 0;
-    display: inline-block;
 }
 
 .todo_list input[type="checkbox"]:checked + span {
