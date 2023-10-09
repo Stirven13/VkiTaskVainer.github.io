@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+</head>
+
+<body>
+  <button id="decrementBtn">-</button>
+  <span id="counterValue">0</span>
+  <button id="incrementBtn">+</button>
+
+  <script>
+    // Получаем ссылки на кнопки и элемент для отображения значения
+    const decrementBtn = document.getElementById("decrementBtn");
+    const incrementBtn = document.getElementById("incrementBtn");
+    const counterValue = document.getElementById("counterValue");
+
+    // Устанавливаем начальное значение счетчика
+    let count = 0;
+    counterValue.textContent = count;
+
+    // Обработчики событий для кнопок
+    decrementBtn.addEventListener("click", () => {
+      count--;
+      counterValue.textContent = count;
+    });
+
+    incrementBtn.addEventListener("click", () => {
+      count++;
+      counterValue.textContent = count;
+    });
+  </script>
+</body>
+
+</html>
