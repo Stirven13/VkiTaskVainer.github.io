@@ -9,20 +9,25 @@
 <div class="class_todo_list">
     <div class="title_style">
         <h1>Список дел</h1>
-        <div class="title_new_elem_input">
-            <label>
-                <input placeholder="Введите новое дело..." type="text">
-            </label>
-            <button>Сохранить</button>
-        </div>
-
+        <ul class="title_new_elem_input">
+            <li class="new_elem_button">
+                <input placeholder="Новый элемент списка..." type="text">
+            </li>
+            <li class="create_button">
+                <button>Создать</button>
+            </li>
+            <li class="clear_button">
+                <button>Очистить</button>
+            </li>
+        </ul>
     </div>
     <div class="todo_list">
-        <ol style="height: 184px; overflow: auto">
+        <ol>
             <li>
                 <label>
                     <input checked type="checkbox"/>
                     <span>Покормить кота</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
@@ -31,6 +36,7 @@
                 <label>
                     <input type="checkbox"/>
                     <span>Выгулять картошку</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
@@ -39,6 +45,7 @@
                 <label>
                     <input type="checkbox"/>
                     <span>Написать сайт</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
@@ -47,14 +54,17 @@
                 <label>
                     <input type="checkbox"/>
                     <span>Покормить картошку</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
             </li>
+
             <li>
                 <label>
                     <input type="checkbox"/>
                     <span>Выгулять сайт</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
@@ -63,6 +73,7 @@
                 <label>
                     <input type="checkbox"/>
                     <span>Покартошить сайт</span>
+                    <time>от 01.01.1999</time>
                     <button></button>
                     <div></div>
                 </label>
@@ -70,5 +81,6 @@
         </ol>
     </div>
 </div>
+<footer>Copyright ©</footer>
 </body>
 </html>
