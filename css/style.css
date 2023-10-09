@@ -1,88 +1,82 @@
 body, html {
+    background-color: rgb(50, 80, 80);
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-
-.class_todo_list {
-    max-width: 600px;
-    min-width: 300px;
-    margin: 3px;
-}
-
 .title_style {
-    background: #2f4f4f;
-    border-top: 26px solid #2f4f4f;
-    border-bottom: 33px solid #2f4f4f;
-    border-left: 45px solid #2f4f4f;
-    border-right: 47px solid #2f4f4f;
+    text-align: center;
 }
 
 .title_style h1 {
-    color: #fff;
-    text-align: center;
-    font: 400 31px/1 'Times New Roman', sans-serif;
+    font: 40px 'Droid Sans', sans-serif;
     font-weight: bold;
-    margin: 6px;
+    color: white;
+}
+
+.title_style ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 3em;
+    padding-right: 3em;
 }
 
 
-.title_new_elem_input input[type="text"] {
-    width: calc(100% - 125px);
-    height: 39px;
-    font-size: 16px;
-    background: #fff;
-    padding: 0;
-    border: 0;
-    padding-left: 10px;
+
+.new_elem_button {
+    flex-grow: 1;
 }
 
-.title_new_elem_input input[type="text"]:focus {
-    outline: none;
+.new_elem_button input {
+    width: calc(100% - 30px);
+    padding: 15px 15px;
+    background-color: #FFFFFF;
+    border: none;
 }
 
-.title_new_elem_input button {
-    height: 39px;
-    width: 125px;
-    padding: 0;
-    border: 0;
-    font-size: 16px;
-    background: #d9d9d9;
-    position: absolute;
-    transition: 0.1s linear;
+.create_button button {
+    padding: 15px 40px;
+    background-color: #D8D8D8;
+    cursor: pointer;
+    border: none;
+    transition: font-size 0.3s ease;
 }
 
-.title_new_elem_input button:active {
-    background: #c8c8c8;
+.clear_button button {
+    padding: 15px 40px;
+    background-color: #A43434;
+    cursor: pointer;
+    border: none;
+    transition: font-size 0.3s ease;
 }
 
-.title_new_elem_input button:hover {
-    font-size: 18px;
-    filter: brightness(90%);
+.create_button .clear_button button:hover {
+    font-size: 20px;
 }
 
+.todo_list {
+    max-height: 200px;
+    overflow-y: auto;
+}
 
 .todo_list ol {
+    text-align: center;
     list-style: none;
-    padding: 0;
-    margin: 0;
-
 }
 
 .todo_list li {
-    padding: 0;
+    margin: 0 5em;
+    height: 50px;
     position: relative;
-    font: 400 22px/1 'Times New Roman', sans-serif;
-    height: 46px;
 }
 
 .todo_list li:hover {
     filter: brightness(90%);
 }
 
-.todo_list input[type="checkbox"] {
+.todo_list li input[type="checkbox"] {
     margin: 0;
     position: absolute;
     left: 10px;
@@ -92,13 +86,23 @@ body, html {
     cursor: pointer;
 }
 
-.todo_list span {
-    cursor: pointer;
+.todo_list li span {
+    font: 20px 'Droid Sans', sans-serif;
     position: absolute;
-    left: 35px;
-    top: calc(50% - 11px);
+    left: 40px;
+    top: calc(50% - 17px);
     transition: text-decoration 0.5s linear;
 }
+
+.todo_list li time {
+    font: 12px 'Droid Sans', sans-serif;
+    position: absolute;
+    left: 40px;
+    top: calc(50% + 5px);
+    transition: text-decoration 0.5s linear;
+}
+
+
 
 .todo_list button {
     background-color: rgba(0, 0, 0, 0);
@@ -121,6 +125,7 @@ body, html {
     width: 2px;
     background-color: #000;
 }
+
 .todo_list button:before {
     transform: rotate(45deg);
 }
@@ -131,6 +136,8 @@ body, html {
 .todo_list button:hover {
     transform: scale(1.1);
 }
+
+
 
 .todo_list div {
     cursor: pointer;
@@ -145,10 +152,23 @@ body, html {
     color: #eeeeee;
 }
 
-.todo_list input[type="checkbox"]:checked + span + button {
+.todo_list input[type="checkbox"]:checked + span + button + time {
     filter: invert(100%);
 }
 
 .todo_list input[type="checkbox"]:checked ~ div {
     background-color: #888888;
+}
+
+
+
+footer {
+    width: 100%;
+    bottom: 20px;
+    position: fixed;
+    text-align: center;
+    border-top: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding-top: 10px;
+    font: 20px 'Droid Sans', sans-serif;
 }
