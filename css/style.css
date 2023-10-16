@@ -57,7 +57,7 @@ body, html {
 }
 
 .todo_list {
-    max-height: 200px;
+    max-height: calc(100vh - 250px);
     overflow-y: auto;
 }
 
