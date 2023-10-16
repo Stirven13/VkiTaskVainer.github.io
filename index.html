@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Системное программирование 2023</title>
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/script.js"></script>
 </head>
 <body>
 <div class="class_todo_list">
@@ -11,13 +12,13 @@
         <h1>Список дел</h1>
         <ul class="title_new_elem_input">
             <li class="new_elem_button">
-                <input placeholder="Новый элемент списка..." type="text">
+                <input id="newTodoInput" placeholder="Новый элемент списка..." type="text">
             </li>
             <li class="create_button">
-                <button>Создать</button>
+                <button onclick="addTodo()">Создать</button>
             </li>
             <li class="clear_button">
-                <button>Очистить</button>
+                <button onclick="clearTodos()">Очистить</button>
             </li>
         </ul>
     </div>
@@ -28,7 +29,7 @@
                     <input checked type="checkbox"/>
                     <span>Покормить кота</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
@@ -37,7 +38,7 @@
                     <input type="checkbox"/>
                     <span>Выгулять картошку</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
@@ -46,7 +47,7 @@
                     <input type="checkbox"/>
                     <span>Написать сайт</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
@@ -55,7 +56,7 @@
                     <input type="checkbox"/>
                     <span>Покормить картошку</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
@@ -65,7 +66,7 @@
                     <input type="checkbox"/>
                     <span>Выгулять сайт</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
@@ -74,7 +75,7 @@
                     <input type="checkbox"/>
                     <span>Покартошить сайт</span>
                     <time>от 01.01.1999</time>
-                    <button></button>
+                    <button onclick="removeTodo()"></button>
                     <div></div>
                 </label>
             </li>
