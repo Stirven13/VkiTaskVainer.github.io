@@ -1,5 +1,8 @@
 body, html {
     background-color: rgb(50, 80, 80);
+    display: flex;
+    flex-direction: column;
+    min-height: 100hv;
 }
 
 ::-webkit-scrollbar {
@@ -8,6 +11,7 @@ body, html {
 
 .title_style {
     text-align: center;
+    flex: 1;
 }
 
 .title_style h1 {
@@ -57,13 +61,13 @@ body, html {
 }
 
 .todo_list {
-    max-height: 200px;
     overflow-y: auto;
 }
 
 .todo_list ol {
     text-align: center;
     list-style: none;
+    margin-bottom: 100px;
 }
 
 .todo_list li {
@@ -160,15 +164,15 @@ body, html {
     background-color: #888888;
 }
 
-
-
 footer {
     width: 100%;
-    bottom: 20px;
-    position: fixed;
     text-align: center;
     border-top: 1px solid #FFFFFF;
     color: #FFFFFF;
+    padding-bottom: 15px;
     padding-top: 10px;
     font: 20px 'Droid Sans', sans-serif;
+    background-color: rgb(50, 80, 80);
+    position: fixed;
+    bottom: 0;
 }
