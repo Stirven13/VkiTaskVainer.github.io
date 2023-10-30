@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Переворот числа</title>
+    <script>
+        function reverseNumber(number) {
+            return parseFloat(number.toString().split('').reverse().join(''));
+        }
+
+        function removeDuplicateDigits(number) {
+            const numberStr = String(number);
+            const digitCount = {};
+            let resultStr = '';
+            
+            for (const digit of numberStr) {
+                if (!digitCount[digit]) {
+                resultStr += digit;
+                digitCount[digit] = true;
+                }
+            }
+            return parseInt(resultStr, 10);
+        }
+
+        function countDigitOccurrences(number, digit) {
+            const numberStr = number.toString();
+            let count = 0;
+
+            for (let i = 0; i < numberStr.length; i++) {
+                if (numberStr[i] === digit.toString()) {
+                count++;
+                }
+            }
+            return count;
+        }
+
+        function findLongestBinarySequence(number) {
+            const binaryString = (number >>> 0).toString(2);
+            let maxZeroCount = 0;
+            let maxOneCount = 0;
+            let currentZeroCount = 0;
+            let currentOneCount = 0;
+
+            for (let i = 0; i < binaryString.length; i++) {
+                if (binaryString[i] === '0') {
+                    currentZeroCount++;
+                    currentOneCount = 0;
+                    if (currentZeroCount > maxZeroCount) {
+                        maxZeroCount = currentZeroCount;
+                    }
+                } else if (binaryString[i] === '1') {
+                    currentOneCount++;
+                    currentZeroCount = 0;
+                    if (currentOneCount > maxOneCount) {
+                        maxOneCount = currentOneCount;
+                    }
+                }
+            }
+            return [maxZeroCount, maxOneCount];
+        }
+
+        function doTasksAlert() {
+            const firstInputNumber = document.getElementById('FirstInputNumber').value;
+            const secondInputNumber = document.getElementById('SecondInputNumber').value;
+
+            if (isNaN(firstInputNumber)) {
+                alert('Пожалуйста, введите корректное число.');
+                return;
+            }
+
+            if (isNaN(secondInputNumber)) {
+                alert('Пожалуйста, введите корректное вспомогательное число.');
+                return;
+            }
+            
+            const reversedNumber = reverseNumber(firstInputNumber);
+            const removedDuplicateDigits = removeDuplicateDigits(firstInputNumber);
+            const countedDigitOccurrences = countDigitOccurrences(firstInputNumber, secondInputNumber);
+            const findedLongestBinarySequence = findLongestBinarySequence(firstInputNumber);
+
+            alert(`Число: ${firstInputNumber}\nПеревернутое число: ${reversedNumber}\nБез повторяющихся цифр: ${removedDuplicateDigits}\nКоличество повторяющихся цифр ${secondInputNumber}: ${countedDigitOccurrences}\nМаксимальное количество 0 и 1 подряд: ${findedLongestBinarySequence[0]}, ${findedLongestBinarySequence[1]}`);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="FirstInputNumber" placeholder="Введите число">
+    <input type="text" id="SecondInputNumber" placeholder="Введите вспомогательное число">
+    <button onclick="doTasksAlert()">Просчитать</button>
+</body>
+</html>

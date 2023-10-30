@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Переворот числа</title>
+    <script>
+        function findFirstUniqueCharacter(str) {
+            const charCount = {};
+
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+                if (charCount[char]) {
+                    charCount[char]++;
+                } else {
+                    charCount[char] = 1;
+                }
+            }
+
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+                if (charCount[char] === 1) {
+                return char;
+                }
+            }
+
+            return null; 
+        }
+
+        function generateRandomString(length) {
+            const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                result += charset.charAt(randomIndex);
+            }
+
+            return result;
+        }
+
+        function getUniqueCharacters(inputString) {
+            let uniqueCharacters = '';
+            const seenCharacters = {};
+
+            for (let i = 0; i < inputString.length; i++) {
+                const char = inputString[i];
+                if (!seenCharacters[char]) {
+                    uniqueCharacters += char;
+                    seenCharacters[char] = true;
+                } 
+            }
+
+            return uniqueCharacters;
+        }
+
+        function doTasksAlert() {
+            const firstInput = document.getElementById('FirstInput').value;
+            const secondInputNumber = document.getElementById('SecondInputNumber').value;
+
+            if (isNaN(secondInputNumber)) {
+                alert('Пожалуйста, введите корректное число.');
+                return;
+            }
+
+            const findedFirstUniqueCharacter = findFirstUniqueCharacter(firstInput);
+            const generatedRandomString = generateRandomString(secondInputNumber);
+            const uniqueCharacters = getUniqueCharacters(firstInput);
+
+            alert(`Текст: ${firstInput}\nПервый уникальный символ: ${findedFirstUniqueCharacter}\nСлучайная строка: ${generatedRandomString}\nУникальные символы: ${uniqueCharacters}`);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="FirstInput" placeholder="Введите текст">
+    <input type="text" id="SecondInputNumber" placeholder="Введите число для 2-го задания">
+    <button onclick="doTasksAlert()">Просчитать</button>
+</body>
+</html>
