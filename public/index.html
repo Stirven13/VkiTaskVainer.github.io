@@ -1,87 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Системное программирование 2023</title>
     <link href="css/style.css" rel="stylesheet">
-    <script src="js/script.js"></script>
 </head>
-<body>
-<div class="class_todo_list">
-    <div class="title_style">
-        <h1>Список дел</h1>
-        <ul class="title_new_elem_input">
-            <li class="new_elem_button">
-                <input id="newTodoInput" placeholder="Новый элемент списка..." type="text">
-            </li>
-            <li class="create_button">
-                <button onclick="addTodo()">Создать</button>
-            </li>
-            <li class="clear_button">
-                <button onclick="clearTodos()">Очистить</button>
-            </li>
-        </ul>
-    </div>
-    <div class="todo_list">
-        <ol>
-            <li>
-                <label>
-                    <input checked type="checkbox"/>
-                    <span>Покормить кота</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox"/>
-                    <span>Выгулять картошку</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox"/>
-                    <span>Написать сайт</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox"/>
-                    <span>Покормить картошку</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
 
-            <li>
-                <label>
-                    <input type="checkbox"/>
-                    <span>Выгулять сайт</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox"/>
-                    <span>Покартошить сайт</span>
-                    <time>от 01.01.1999</time>
-                    <button onclick="removeTodo()"></button>
-                    <div></div>
-                </label>
-            </li>
-        </ol>
-    </div>
-</div>
-<footer>Copyright ©</footer>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const TitleNewElemInput = () => (
+            <ul className="title_new_elem_input">
+                <li className="new_elem_button">
+                    <input id="newTodoInput" placeholder="Новый элемент списка..." type="text" />
+                </li>
+                <li className="create_button">
+                    <button>Создать</button>
+                </li>
+                <li className="clear_button">
+                    <button>Очистить</button>
+                </li>
+            </ul>
+        );
+
+        const TodoItem = ({ text, date }) => {
+            const onDelete = (button) => {
+                const pageYButton = button.pageY;
+                console.log(button)
+                
+                const list = document.querySelector('.todo_list ol');
+                const items = list.getElementsByTagName('li');
+
+                for (let i = items.length - 1; i >= 0; i--) {
+                    const item = items[i];
+                    const itemButton = item.querySelector('label button')
+                    
+                    console.log(itemButton.getBoundingClientRect().top)
+                    console.log(pageYButton)
+                    
+                    if (Math.abs(itemButton.getBoundingClientRect().top - pageYButton) < 7) {
+                        list.remove(item);
+                        list.removeChild(item);
+                        console.log(`Deleting item: ${text} - ${date}`);
+                        break;
+                    }
+                }
+            };
+
+            return (
+                <li>
+                    <label>
+                        <input type="checkbox" />
+                        <span>{text}</span>
+                        <time>{date}</time>
+                        <button onClick={onDelete}></button>
+                        <div></div>
+                    </label>
+                </li>
+            );
+        };
+
+        const TodoList = () => (
+            <div className="todo_list">
+                <ol>
+                    <TodoItem text="Покормить кота" date="от 01.01.1999" />
+                    <TodoItem text="Выгулять картошку" date="от 01.01.1999" />
+                    <TodoItem text="Написать сайт" date="от 01.01.1999" />
+                    <TodoItem text="Покормить картошку" date="от 01.01.1999" />
+                    <TodoItem text="Выгулять сайт" date="от 01.01.1999" />
+                    <TodoItem text="Покартошить сайт" date="от 01.01.1999" />
+                </ol>
+            </div>
+        );
+
+        const App = () => (
+            <div className="class_todo_list">
+                <div className="title_style">
+                    <h1>Список дел</h1>
+                    <TitleNewElemInput />
+                </div>
+                <TodoList />
+            </div>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+    <footer>Copyright ©</footer>
 </body>
 </html>
+
